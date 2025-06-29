@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para você 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffe6e6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .card img {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #ff4d6d;
+      margin: 10px 0;
+    }
+
+    .btn {
+      color: #555;
+      font-size: 16px;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+
+    .mensagem {
+      display: none;
+      color: #333;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .mensagem.mostrar {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="coração" />
+    <h2>Para minha gatona! 💖</h2>
+    <div class="btn" onclick="mostrarMensagem()">Toque para ler ❤️</div>
+    <div class="mensagem" id="mensagem">
+      Linda, se você fosse gripe eu saia na chuva só pra te pegar! 🌹
+    </div>
+
+    <audio id="musica" preload="auto" loop>
+      <source src="midia/karefugi.mp3.mp3" type="audio/mpeg" />
+      Seu navegador não suporta áudio.
+    </audio>
+  </div>
+
+  <script>
+    function mostrarMensagem() {
+      const mensagem = document.getElementById("mensagem");
+      const musica = document.getElementById("musica");
+
+      mensagem.classList.add("mostrar");
+
+      musica.volume = 1.0;
+      musica.play().catch((error) => {
+        alert("Clique novamente se a música não começar. O navegador pode ter bloqueado.");
+        console.error("Erro ao tocar a música:", error);
+      });
+    }
+  </script>
+</body>
+</html>
